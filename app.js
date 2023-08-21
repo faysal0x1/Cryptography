@@ -51,12 +51,12 @@ decryptData.addEventListener('click', function (e) {
   e.preventDefault()
 
   let cryptoword = document.getElementById('cryptoword').value
-
   let key = document.getElementById('encKey').value
   key = parseInt(key)
 
   let arr = cryptoword.split('')
   let isValid = arr.every(item => {
+    
     let charCode = item.charCodeAt(0)
     return (
       (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)
@@ -76,10 +76,13 @@ decryptData.addEventListener('click', function (e) {
     let char = arr[i]
 
     if (char.toUpperCase(arr[i])) {
+
       let val = Math.ceil(Math.abs(char.charCodeAt(0) - key - 65) / 26)
       console.log(val)
+
       let ch = String.fromCharCode((char.charCodeAt(0) - key - 65) + 26*val + 65)
       result += ch
+
     } else {
       let ch = String.fromCharCode((char.charCodeAt(0) - key - 65 )+ 26*val + 65)
       result += ch

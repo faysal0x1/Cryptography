@@ -1,3 +1,37 @@
+
+// Function to handle the file input change event
+function handleFileInputChange() {
+  var fileInput = document.getElementById("fileInput");
+  var file = fileInput.files[0]; // Get the selected file
+
+  if (file) {
+      var reader = new FileReader();
+
+      reader.onload = function(event) {
+          var fileContent = event.target.result;
+          var paragraphElement = document.getElementById("fileContent");
+          paragraphElement.textContent = fileContent;
+      };
+
+      reader.readAsText(file); // Read the file as text
+  }
+}
+
+// Attach the event listener to the file input change event
+var fileInput = document.getElementById("fileInput");
+fileInput.addEventListener("change", handleFileInputChange);
+
+
+
+
+
+
+
+
+
+
+
+
 let encrypt = document.getElementById('encryptData')
 
 encrypt.addEventListener('click', function (e) {
